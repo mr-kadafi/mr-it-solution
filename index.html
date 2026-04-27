@@ -721,50 +721,108 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
             }
         }
 
-        /* Vision Mission */
-        .vision-mission {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
+        /* ================= VISION MISSION ================= */
 
-        .vision,
-        .mission {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
+.vm-section {
+    padding: 100px 20px;
+    background: #f8fafc;
+}
 
-        .vision h3,
-        .mission h3 {
-            font-size: 1.5rem;
-            color: #2563eb;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+/* HEADER */
+.vm-header {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
 
-        .mission ul {
-            list-style: none;
-        }
+.vm-tag {
+    color: #2563eb;
+    font-weight: 600;
+}
 
-        .mission li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: #475569;
-        }
+.vm-header h2 {
+    font-size: 2.3rem;
+    color: #1e293b;
+    margin: 1rem 0;
+}
 
-        .mission li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+.vm-sub {
+    color: #64748b;
+}
+
+/* LAYOUT */
+.vm-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+}
+
+/* VISION (LEFT) */
+.vm-vision {
+    background: #2563eb;
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vm-vision i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.vm-vision h3 {
+    margin-bottom: 1rem;
+}
+
+/* MISSION (RIGHT) */
+.vm-mission {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.vm-mission h3 {
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+}
+
+/* MISSION ITEM */
+.mission-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+/* NUMBER */
+.mission-item span {
+    background: #2563eb;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+/* TEXT */
+.mission-item p {
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .vm-container {
+        grid-template-columns: 1fr;
+    }
+}
 
         /* ================= WHY CHOOSE US ================= */
 
@@ -1903,6 +1961,64 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
 
         </div>
     </section>
+
+    <!-- Vision & Mission (Modern) -->
+<section id="vision" class="vm-section fade-in">
+
+    <div class="vm-header">
+        <p class="vm-tag">Vision & Mission</p>
+        <h2>Our Direction & Commitment</h2>
+        <p class="vm-sub">
+            Our vision defines our future, while our mission guides every step we take.
+        </p>
+    </div>
+
+    <div class="vm-container">
+
+        <!-- LEFT (VISION) -->
+        <div class="vm-vision">
+            <i class="fas fa-eye"></i>
+            <h3>Our Vision</h3>
+            <p>
+                To become a trusted and leading IT solutions provider that delivers 
+                innovative, reliable, and impactful technology services.
+            </p>
+        </div>
+
+        <!-- RIGHT (MISSION) -->
+        <div class="vm-mission">
+
+            <h3>Our Mission</h3>
+
+            <div class="mission-item">
+                <span>01</span>
+                <p>Deliver high-quality IT solutions tailored to client needs</p>
+            </div>
+
+            <div class="mission-item">
+                <span>02</span>
+                <p>Provide innovative and reliable technology services</p>
+            </div>
+
+            <div class="mission-item">
+                <span>03</span>
+                <p>Ensure customer satisfaction through excellent support</p>
+            </div>
+
+            <div class="mission-item">
+                <span>04</span>
+                <p>Continuously improve with the latest technology trends</p>
+            </div>
+
+            <div class="mission-item">
+                <span>05</span>
+                <p>Offer affordable and efficient solutions</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
     <!-- Services Section (Modern Upgrade) -->
     <section id="services" class="services-section fade-in">
