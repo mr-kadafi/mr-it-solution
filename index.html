@@ -101,170 +101,554 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
             transition: 0.3s;
         }
 
-        /* Hero Section */
+        /* ================= HERO FINAL CLEAN ================= */
+
         .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            background: radial-gradient(circle at top right, #3b82f6, #1e3a8a);
             color: white;
+            padding: 0 20px;
             position: relative;
             overflow: hidden;
         }
 
+        /* Glow effect */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
-            pointer-events: none;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            filter: blur(100px);
+            top: -100px;
+            right: -100px;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
+        /* CONTAINER (FIX UTAMA) */
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
             z-index: 2;
-            animation: fadeInUp 1s ease;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
+        /* LEFT */
+        .hero-left {
+            max-width: 520px;
+        }
+
+        .hero-tag {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .hero-left h1 {
+            font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            opacity: 0.95;
+            line-height: 1.25;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
+        .hero-desc {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 2rem;
         }
 
-        .cta-button {
-            display: inline-block;
+        /* BUTTON */
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn-primary {
             background: white;
             color: #2563eb;
-            padding: 1rem 2.5rem;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .btn-secondary {
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            padding: 0.9rem 2.2rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
         }
 
-        .cta-button:hover {
+        .btn-primary:hover,
+        .btn-secondary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        /* Sections */
+        /* TRUST */
+        .hero-trust {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-trust span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* RIGHT */
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* CARD */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.5rem;
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-card i {
+            font-size: 2rem;
+            min-width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+        }
+
+        .hero-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .hero-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .hero-left {
+                margin: auto;
+            }
+
+            .hero-left h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-trust {
+                justify-content: center;
+            }
+        }
+
         .section {
-            padding: 100px 0;
+            padding: 100px 20px;
             max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            margin: auto;
         }
 
         .section-title {
-            text-align: center;
             font-size: 2.5rem;
-            font-weight: 700;
+            text-align: center;
             margin-bottom: 3rem;
             color: #1e293b;
         }
 
-        /* About Section */
-        .about-content {
+        /* ================= ABOUT MODERN ================= */
+
+        .about-section {
+            padding: 100px 20px;
+            background: #f8fafc;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .about-text {
-            font-size: 1.1rem;
-            color: #475569;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image i {
-            font-size: 12rem;
+        /* LEFT */
+        .about-tag {
             color: #2563eb;
-            opacity: 0.1;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            border-top: 4px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            border-top-color: #2563eb;
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            color: #2563eb;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: #1e293b;
         }
 
-        .service-card p {
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-desc {
+            color: #64748b;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        /* STATS */
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-stats h3 {
+            margin: 0;
+            color: #2563eb;
+        }
+
+        .about-stats p {
+            margin: 0;
+            font-size: 0.9rem;
             color: #64748b;
         }
 
-        /* History Section */
-        .history-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        /* RIGHT */
+        .about-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .history-text {
-            font-size: 1.1rem;
-            color: #475569;
-            line-height: 1.8;
+        /* CARD */
+        .about-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
         }
 
-        .history-icon {
-            text-align: center;
+        .about-card:hover {
+            transform: translateY(-5px);
         }
 
-        .history-icon i {
-            font-size: 10rem;
+        /* ICON */
+        .about-card i {
+            font-size: 2rem;
             color: #2563eb;
-            opacity: 0.1;
+        }
+
+        /* TEXT */
+        .about-card h3 {
+            margin: 0;
+            color: #1e293b;
+        }
+
+        .about-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-stats {
+                justify-content: center;
+            }
+
+            .about-right {
+                margin-top: 2rem;
+            }
+        }
+
+        /* ================= SERVICES MODERN ================= */
+
+        .services-section {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        /* HEADER */
+        .services-header {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 3rem;
+        }
+
+        .services-tag {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .services-header h2 {
+            font-size: 2.3rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .services-sub {
+            color: #64748b;
+        }
+
+        /* GRID */
+        .services-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        /* CARD */
+        .service-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 18px;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* ICON */
+        .service-card i {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        /* TITLE */
+        .service-card h3 {
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        /* TEXT */
+        .service-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        /* LIST */
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: #475569;
+        }
+
+        /* HOVER */
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* HIGHLIGHT CARD */
+        .service-card.highlight {
+            background: #2563eb;
+            color: white;
+        }
+
+        .service-card.highlight p,
+        .service-card.highlight li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-card.highlight i {
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .services-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ================= PRO TIMELINE ================= */
+
+        .history-section {
+            padding: 100px 20px;
+            background: #f8fafc;
+        }
+
+        .history-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* HEADER */
+        .history-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .history-tag {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .history-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        /* TIMELINE LINE */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: #2563eb;
+            transform: translateX(-50%);
+        }
+
+        /* ITEM */
+        .timeline-item {
+            width: 50%;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* LEFT & RIGHT */
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        /* CONTENT */
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        /* DOT */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 18px;
+            height: 18px;
+            background: #2563eb;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-item.left::before {
+            right: -9px;
+        }
+
+        .timeline-item.right::before {
+            left: -9px;
+        }
+
+        /* STAT */
+        .timeline-stat {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #2563eb;
+        }
+
+        /* HOVER */
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ANIMATION */
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+            }
+
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .timeline-item.left::before,
+            .timeline-item.right::before {
+                left: 0;
+            }
         }
 
         /* Vision Mission */
@@ -312,95 +696,278 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
             font-size: 1.2rem;
         }
 
-        /* Why Choose Us */
-        .features-grid {
+        /* ================= WHY CHOOSE US ================= */
+
+        .why-section {
+            padding: 100px 20px;
+            background: #f8fafc;
+        }
+
+        /* HEADER */
+        .why-header {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 3rem;
+        }
+
+        .why-tag {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .why-header h2 {
+            font-size: 2.3rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .why-sub {
+            color: #64748b;
+        }
+
+        /* GRID */
+        .why-grid {
+            max-width: 1100px;
+            margin: auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
         }
 
-        .feature {
-            text-align: center;
+        /* CARD */
+        .why-card {
+            background: white;
             padding: 2rem;
+            border-radius: 18px;
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        .feature i {
-            font-size: 3rem;
+        /* ICON */
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            margin: auto;
+            margin-bottom: 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-icon i {
+            font-size: 1.5rem;
             color: #2563eb;
-            margin-bottom: 1rem;
         }
 
-        .feature h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        /* TEXT */
+        .why-card h3 {
+            margin-bottom: 0.5rem;
             color: #1e293b;
         }
 
-        /* Target Market */
-        .target-grid {
+        .why-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* HOVER */
+        .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* HIGHLIGHT */
+        .why-card.highlight {
+            background: #2563eb;
+            color: white;
+        }
+
+        .why-card.highlight p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .why-card.highlight .why-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .why-card.highlight i {
+            color: white;
+        }
+
+        /* BADGE */
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            color: #2563eb;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .why-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Target Market - Improved */
+        .tm-section {
+            padding: 100px 20px;
+        }
+
+        .tm-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .tm-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tm-tag {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tm-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .tm-subtitle {
+            color: #64748b;
+        }
+
+        /* Grid */
+        .tm-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .target-card {
+        /* Card */
+        .tm-card {
             background: white;
             padding: 2rem;
-            border-radius: 20px;
+            border-radius: 18px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border: 1px solid #f1f5f9;
         }
 
-        .target-card:hover {
+        .tm-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
         }
 
-        .target-card i {
+        /* Icon */
+        .tm-card i {
             font-size: 2.5rem;
             color: #2563eb;
             margin-bottom: 1rem;
         }
 
-        .target-card h3 {
-            margin-bottom: 0.8rem;
+        /* Text */
+        .tm-card h3 {
+            margin-bottom: 0.5rem;
             color: #1e293b;
         }
 
-        /* Contact Section */
-        .contact-content {
+        .tm-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tm-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* ================= CONTACT MODERN ================= */
+
+        .contact-section {
+            padding: 100px 20px;
+            background: #f8fafc;
+        }
+
+        /* HEADER */
+        .contact-header {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 3rem;
+        }
+
+        .contact-tag {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .contact-header h2 {
+            font-size: 2.3rem;
+            color: #1e293b;
+            margin: 1rem 0;
+        }
+
+        .contact-sub {
+            color: #64748b;
+        }
+
+        /* LAYOUT */
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
         }
 
-        .contact-info {
+        /* LEFT */
+        .contact-left {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
-        .contact-item {
+        /* CARD */
+        .contact-card {
             display: flex;
-            align-items: center;
             gap: 1rem;
-            padding: 1.5rem;
+            align-items: center;
             background: white;
+            padding: 1.2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .contact-item:hover {
-            transform: translateX(10px);
+        .contact-card:hover {
+            transform: translateX(8px);
         }
 
-        .contact-item i {
-            font-size: 2rem;
+        /* ICON */
+        .contact-card i {
+            font-size: 1.5rem;
             color: #2563eb;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -408,26 +975,49 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
             border-radius: 10px;
         }
 
-        .contact-form {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        /* CTA BOX */
+        .contact-cta {
+            background: #2563eb;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
         }
 
+        .contact-cta h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-cta a {
+            display: inline-block;
+            margin-top: 1rem;
+            background: white;
+            color: #2563eb;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* RIGHT FORM */
+        .contact-right {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* FORM */
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
+            padding: 0.9rem;
+            border: 1.5px solid #e2e8f0;
             border-radius: 10px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .form-group input:focus,
@@ -437,169 +1027,543 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
         }
 
         .form-group textarea {
-            resize: vertical;
             min-height: 120px;
         }
 
+        /* BUTTON */
         .submit-btn {
+            width: 100%;
             background: #2563eb;
             color: white;
-            padding: 1rem 2.5rem;
-            border: none;
+            padding: 0.9rem;
             border-radius: 10px;
-            font-size: 1.1rem;
+            border: none;
             font-weight: 600;
             cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         .submit-btn:hover {
             background: #1d4ed8;
-            transform: translateY(-2px);
         }
 
-        /* Features & Benefits */
-        .features-benefits-grid {
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================= FEATURES BENEFITS ================= */
+
+        .fb-section {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        /* HEADER */
+        .fb-header {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 3rem;
+        }
+
+        .fb-tag {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .fb-header h2 {
+            font-size: 2.3rem;
+            color: #1e293b;
+            margin: 1rem 0;
+        }
+
+        .fb-sub {
+            color: #64748b;
+        }
+
+        /* LAYOUT */
+        .fb-container {
+            max-width: 1200px;
+            margin: auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1.2fr;
             gap: 2rem;
         }
 
-        .fb-card {
-            background: white;
-            padding: 2rem;
+        /* LEFT BIG CARD */
+        .fb-highlight {
+            background: #2563eb;
+            color: white;
+            padding: 2.5rem;
             border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .fb-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .fb-card i {
-            font-size: 2.5rem;
-            color: #2563eb;
+        .fb-highlight i {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
+        .fb-highlight h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* RIGHT GRID */
+        .fb-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* CARD */
+        .fb-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .fb-card i {
+            font-size: 1.8rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
         .fb-card h3 {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.3rem;
+            color: #1e293b;
+            font-size: 1rem;
+        }
+
+        .fb-card p {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* HOVER */
+        .fb-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .fb-container {
+                grid-template-columns: 1fr;
+            }
+
+            .fb-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Solved Pain - Improved */
+        .sp-section {
+            padding: 100px 20px;
+            background: #f8fafc;
+        }
+
+        .sp-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .sp-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .sp-tag {
+            color: #ef4444;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sp-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .sp-subtitle {
+            color: #64748b;
+        }
+
+        /* List Style */
+        .sp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sp-item {
+            display: flex;
+            gap: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .sp-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Icon */
+        .sp-icon {
+            min-width: 60px;
+            height: 60px;
+            background: rgba(239, 68, 68, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .sp-icon i {
+            font-size: 1.8rem;
+            color: #ef4444;
+        }
+
+        /* Content */
+        .sp-content h3 {
+            margin: 0;
+            font-size: 1.2rem;
             color: #1e293b;
         }
 
-        /* Footer */
-        .footer {
-            background: #1e293b;
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem 2rem;
+        .sp-content p {
+            margin: 0.3rem 0;
+            color: #64748b;
         }
 
-        .social-links {
+        .sp-content span {
+            display: block;
+            margin-top: 0.5rem;
+            color: #16a34a;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sp-item {
+                flex-direction: column;
+            }
+        }
+
+        /* New Headline - Split Layout */
+        .nh-section {
+            padding: 100px 20px;
+        }
+
+        .nh-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* Left */
+        .nh-tag {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .nh-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .nh-desc {
+            color: #64748b;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .nh-actions {
             display: flex;
-            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nh-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nh-btn.primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .nh-btn.primary:hover {
+            background: #1d4ed8;
+        }
+
+        .nh-btn.secondary {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .nh-btn.secondary:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Right Visual Cards */
+        .nh-right {
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
+        }
+
+        .nh-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: 0.3s;
+        }
+
+        .nh-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nh-card i {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+
+        .nh-card h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #1e293b;
+        }
+
+        .nh-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nh-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nh-title {
+                font-size: 2rem;
+            }
+
+            .nh-right {
+                margin-top: 2rem;
+            }
+        }
+
+        /* Mapping Section */
+        .map-section {
+            padding: 100px 20px;
+            background: #f8fafc;
+        }
+
+        .map-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .map-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .map-tag {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .map-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 1rem 0;
+        }
+
+        .map-subtitle {
+            color: #64748b;
+        }
+
+        /* Grid */
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card */
+        .map-card {
+            padding: 2rem;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Titles */
+        .map-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Lists */
+        .map-card ul {
+            padding-left: 1rem;
+        }
+
+        .map-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Colors per type */
+        .map-card.jobs {
+            border-top: 5px solid #2563eb;
+        }
+
+        .map-card.pain {
+            border-top: 5px solid #ef4444;
+        }
+
+        .map-card.gain {
+            border-top: 5px solid #10b981;
+        }
+
+        /* Icons */
+        .map-card i {
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .map-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* ================= FOOTER MODERN ================= */
+
+        .footer {
+            background: #0f172a;
+            color: #cbd5f5;
+            padding: 60px 20px 20px;
+        }
+
+        /* CONTAINER */
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .social-links a {
+        /* BRAND */
+        .footer-brand h2 {
             color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            margin-bottom: 1rem;
         }
 
-        .social-links a:hover {
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* LINKS */
+        .footer-links h4,
+        .footer-social h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #cbd5f5;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
             color: #2563eb;
+        }
+
+        /* SOCIAL */
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #2563eb;
             transform: translateY(-3px);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* BOTTOM */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding-top: 1rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content,
-            .vision-mission,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section {
-                padding: 60px 0;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .history-content {
-                grid-template-columns: 1fr;
+            .footer {
                 text-align: center;
             }
-        }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
+            .social-icons {
+                justify-content: center;
             }
         }
     </style>
@@ -626,286 +1590,769 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Smart Solutions for Your Technology Needs</h1>
-            <p>Mr IT Solution is an IT-based company that provides professional and innovative technology services,
-                including system development, website development, CCTV installation, and computer & laptop repair.</p>
-            <a href="#contact" class="cta-button">Contact Us</a>
+        <div class="hero-container">
+
+            <!-- LEFT -->
+            <div class="hero-left">
+                <p class="hero-tag">🚀 Mr IT Solution</p>
+
+                <h1>
+                    Smart, Secure & Scalable <br>
+                    IT Solutions for Your Business
+                </h1>
+
+                <p class="hero-desc">
+                    We help businesses and individuals solve technology problems, improve efficiency,
+                    and build a strong digital presence through innovative IT services.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#services" class="btn-primary">Get Started</a>
+                    <a href="#contact" class="btn-secondary">Contact Us</a>
+                </div>
+
+                <div class="hero-trust">
+                    <span>✔ Professional</span>
+                    <span>✔ Reliable</span>
+                    <span>✔ Affordable</span>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="hero-right">
+
+                <div class="hero-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <div>
+                        <h3>IT Solutions</h3>
+                        <p>Modern systems & websites</p>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h3>Security</h3>
+                        <p>CCTV & monitoring systems</p>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <i class="fas fa-tools"></i>
+                    <div>
+                        <h3>Repair</h3>
+                        <p>Fast device troubleshooting</p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section fade-in">
-        <h2 class="section-title">About Mr IT Solution</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>We are a dedicated team of IT professionals committed to delivering cutting-edge technology solutions
-                    that empower businesses and individuals alike. With years of experience in the industry, we
-                    understand the unique challenges you face and provide tailored solutions that drive success.</p>
-                <p>Our mission is to bridge the gap between complex technology and practical business needs, making IT
-                    accessible, affordable, and effective for everyone.</p>
+    <!-- About Section (Modern) -->
+    <section id="about" class="about-section fade-in">
+        <div class="about-container">
+
+            <!-- LEFT -->
+            <div class="about-left">
+                <p class="about-tag">About Us</p>
+
+                <h2 class="about-title">
+                    We Build Smart IT Solutions for Modern Needs
+                </h2>
+
+                <p class="about-desc">
+                    Mr IT Solution is a team of passionate IT professionals dedicated to delivering innovative and
+                    reliable technology services. We help businesses and individuals overcome challenges and achieve
+                    digital success.
+                </p>
+
+                <p class="about-desc">
+                    Our goal is to simplify technology, making it accessible, efficient, and impactful for everyone.
+                </p>
+
+                <!-- MINI STATS -->
+                <div class="about-stats">
+                    <div>
+                        <h3>50+</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div>
+                        <h3>100%</h3>
+                        <p>Client Focus</p>
+                    </div>
+                    <div>
+                        <h3>24/7</h3>
+                        <p>Support</p>
+                    </div>
+                </div>
             </div>
-            <div class="about-image">
-                <i class="fas fa-laptop-code"></i>
+
+            <!-- RIGHT -->
+            <div class="about-right">
+
+                <div class="about-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Technology</h3>
+                    <p>Modern systems and scalable solutions.</p>
+                </div>
+
+                <div class="about-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>Creative solutions for complex problems.</p>
+                </div>
+
+                <div class="about-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Client Focus</h3>
+                    <p>We prioritize your needs and satisfaction.</p>
+                </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- Company History Section -->
-    <section id="history" class="section fade-in">
-        <h2 class="section-title">Company History</h2>
-        <div class="history-content">
-            <div class="history-text">
-                <p><strong>Mr IT Solution</strong> was established on April 11, 2026, with the goal of providing
-                    reliable and innovative IT services for individuals and businesses. The company was founded in
-                    response to the growing demand for technology solutions in the digital era.</p>
+    <!-- Company History (Timeline Style) -->
+    <section id="history" class="history-section fade-in">
+        <div class="history-container">
 
-                <p>Since its establishment, Mr IT Solution has focused on delivering high-quality services, including
-                    system development, website creation, CCTV installation, and computer & laptop repair. Starting as a
-                    small IT service provider, the company continues to grow by prioritizing customer satisfaction,
-                    professionalism, and continuous improvement.</p>
-
-                <p>With a strong commitment to innovation and service excellence, Mr IT Solution aims to expand its
-                    reach and become a trusted partner in the field of information technology.</p>
+            <div class="history-header">
+                <p class="history-tag">Our Journey</p>
+                <h2 class="history-title">Company History</h2>
             </div>
 
-            <div class="history-icon">
-                <i class="fas fa-history"></i>
+            <div class="timeline">
+
+                <!-- ITEM 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>April 13, 2026</h3>
+                        <p>
+                            Mr IT Solution was established with the mission to provide reliable and innovative IT
+                            services
+                            for individuals and businesses in the digital era.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Early Development</h3>
+                        <p>
+                            Started as a small IT service provider focusing on computer repair, system development,
+                            and basic technology solutions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Service Expansion</h3>
+                        <p>
+                            Expanded services to include website development and CCTV installation to meet growing
+                            customer needs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Today & Future</h3>
+                        <p>
+                            Continuing to grow by prioritizing customer satisfaction, innovation, and becoming a trusted
+                            IT partner for long-term solutions.
+                        </p>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- Vision & Mission Section -->
-    <section id="vision" class="section fade-in">
-        <h2 class="section-title">Vision & Mission</h2>
-        <div class="vision-mission">
-            <div class="vision">
-                <h3><i class="fas fa-eye"></i> Our Vision</h3>
-                <p>To become a trusted and leading IT service provider that delivers innovative, reliable, and
-                    high-quality technology solutions to support digital transformation.</p>
+    <!-- Company History PRO -->
+    <section id="history" class="history-section">
+        <div class="history-container">
+
+            <div class="history-header">
+                <p class="history-tag">Our Journey</p>
+                <h2 class="history-title">Company Growth Timeline</h2>
             </div>
-            <div class="mission">
-                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+
+            <div class="timeline">
+
+                <!-- ITEM 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2026</h3>
+                        <p>Mr IT Solution was founded to provide IT services for businesses and individuals.</p>
+                        <div class="timeline-stat">Start 🚀</div>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Early Stage</h3>
+                        <p>Focused on computer repair and basic IT solutions.</p>
+                        <div class="timeline-stat">10+ Clients</div>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Expansion</h3>
+                        <p>Added website development and CCTV installation services.</p>
+                        <div class="timeline-stat">50+ Projects</div>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Today</h3>
+                        <p>Growing into a trusted IT partner with continuous innovation.</p>
+                        <div class="timeline-stat">Trusted Service</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section (Modern Upgrade) -->
+    <section id="services" class="services-section fade-in">
+
+        <div class="services-header">
+            <p class="services-tag">Our Services</p>
+            <h2>Professional IT Solutions for Your Needs</h2>
+            <p class="services-sub">
+                We provide reliable, scalable, and efficient IT services to help your business grow in the digital era.
+            </p>
+        </div>
+
+        <div class="services-grid">
+
+            <!-- CARD 1 -->
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>System Development</h3>
+                <p>Custom-built software tailored to your business processes.</p>
+
                 <ul>
-                    <li>Deliver high-quality IT solutions that meet client needs.</li>
-                    <li>Provide innovative, reliable, and scalable technology services.</li>
-                    <li>Ensure customer satisfaction through excellent service and support.</li>
-                    <li>Continuously improve by adapting to the latest technological advancements.</li>
-                    <li>Offer cost-effective and efficient solutions for businesses and individuals.</li>
-
+                    <li>✔ Scalable system</li>
+                    <li>✔ High performance</li>
+                    <li>✔ Secure architecture</li>
                 </ul>
             </div>
-        </div>
-    </section>
-    <!-- Services Section -->
-    <section id="services" class="section fade-in">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
+
+            <!-- CARD 2 -->
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>System Development</h3>
-                <p>We provide custom software solutions tailored to your business needs. From desktop applications to
-                    enterprise systems, we deliver robust, scalable, and high-performance solutions that enhance
-                    productivity and drive business growth.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-globe"></i>
-                </div>
+                <i class="fas fa-globe"></i>
                 <h3>Website Development</h3>
-                <p>We design and develop modern, responsive websites that effectively engage your audience and convert
-                    visitors into loyal customers. Our expertise includes e-commerce platforms, portfolio websites, and
-                    corporate web solutions tailored to your business needs.</p>
+                <p>Modern websites designed to engage and convert users.</p>
+
+                <ul>
+                    <li>✔ Responsive design</li>
+                    <li>✔ SEO friendly</li>
+                    <li>✔ Fast loading</li>
+                </ul>
             </div>
+
+            <!-- CARD 3 -->
             <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-video"></i>
-                </div>
+                <i class="fas fa-video"></i>
                 <h3>CCTV Installation</h3>
-                <p>We offer professional CCTV security system installation and maintenance services to ensure maximum
-                    protection. Our advanced and reliable surveillance solutions help you monitor and secure your
-                    premises effectively.</p>
+                <p>Advanced surveillance systems for maximum security.</p>
+
+                <ul>
+                    <li>✔ HD monitoring</li>
+                    <li>✔ Remote access</li>
+                    <li>✔ Reliable system</li>
+                </ul>
             </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
+
+            <!-- CARD 4 -->
+            <div class="service-card highlight">
+                <i class="fas fa-tools"></i>
                 <h3>Computer & Laptop Repair</h3>
-                <p>We offer fast, reliable, and professional repair services for all computer and laptop issues. Our
-                    services include comprehensive hardware and software diagnostics, troubleshooting, and efficient
-                    repairs to ensure optimal performance.</p>
+                <p>Fast and efficient repair services for all device issues.</p>
+
+                <ul>
+                    <li>✔ Hardware repair</li>
+                    <li>✔ Software fix</li>
+                    <li>✔ Quick service</li>
+                </ul>
             </div>
+
         </div>
+
     </section>
 
+    <!-- Why Choose Us (Modern) -->
+    <section class="why-section fade-in">
 
-    <!-- Why Choose Us -->
-    <section class="section fade-in">
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="features-grid">
-            <div class="feature">
-                <i class="fas fa-user-tie"></i>
+        <div class="why-header">
+            <p class="why-tag">Why Choose Us</p>
+            <h2>Why Mr IT Solution is the Right Choice</h2>
+            <p class="why-sub">
+                We deliver reliable, efficient, and high-quality IT services tailored to your needs.
+            </p>
+        </div>
+
+        <div class="why-grid">
+
+            <!-- ITEM 1 -->
+            <div class="why-card">
+                <div class="why-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
                 <h3>Professional Team</h3>
-                <p>Our experienced IT professionals are ready to deliver the best solutions for your needs.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-tags"></i>
-                <h3>Affordable Price</h3>
-                <p>We provide high-quality services at competitive and affordable prices.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-bolt"></i>
-                <h3>Fast Service</h3>
-                <p>We provide quick response and efficient problem-solving to meet your needs.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Reliable Solutions</h3>
-                <p>We provide trusted and secure IT solutions for long-term use.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features & Benefits Section -->
-    <section id="features" class="section fade-in">
-        <h2 class="section-title">Features & Benefits</h2>
-        <div class="features-benefits-grid">
-            <div class="fb-card">
-                <i class="fas fa-cogs"></i>
-                <h3>Custom Solutions</h3>
-                <p>We provide tailored systems and websites designed to meet specific client needs.</p>
+                <p>Experienced IT professionals ready to deliver optimal solutions.</p>
             </div>
 
-            <div class="fb-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Secure & Reliable</h3>
-                <p>Our solutions prioritize security and reliability for long-term performance.</p>
-            </div>
-
-            <div class="fb-card">
-                <i class="fas fa-rocket"></i>
-                <h3>High Performance</h3>
-                <p>We build fast and efficient systems to improve productivity and user experience.</p>
-            </div>
-
-            <div class="fb-card">
-                <i class="fas fa-headset"></i>
-                <h3>Professional Support</h3>
-                <p>We provide responsive and professional support for all your IT needs.</p>
-            </div>
-
-            <div class="fb-card">
-                <i class="fas fa-dollar-sign"></i>
+            <!-- ITEM 2 -->
+            <div class="why-card">
+                <div class="why-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
                 <h3>Affordable Pricing</h3>
-                <p>Our services are cost-effective without compromising quality.</p>
+                <p>High-quality services with competitive and reasonable pricing.</p>
             </div>
 
-            <div class="fb-card">
-                <i class="fas fa-sync-alt"></i>
-                <h3>Up-to-date Technology</h3>
-                <p>We always use the latest technology to ensure modern and scalable solutions.</p>
+            <!-- ITEM 3 (HIGHLIGHT) -->
+            <div class="why-card highlight">
+                <div class="why-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Fast Response</h3>
+                <p>Quick response and efficient problem-solving for your needs.</p>
+                <span class="badge">Most Requested</span>
             </div>
+
+            <!-- ITEM 4 -->
+            <div class="why-card">
+                <div class="why-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Reliable & Secure</h3>
+                <p>Trusted IT solutions designed for long-term performance.</p>
+            </div>
+
         </div>
     </section>
 
-    <!-- Target Market Section -->
-    <section id="target" class="section fade-in">
-        <h2 class="section-title">Target Market</h2>
-        <div class="target-grid">
-            <div class="target-card">
-                <i class="fas fa-building"></i>
-                <h3>Small & Medium Enterprises</h3>
-                <p>Helping businesses improve efficiency through digital systems and websites.</p>
+    <!-- Features & Benefits (Modern) -->
+    <section id="features" class="fb-section fade-in">
+
+        <div class="fb-header">
+            <p class="fb-tag">Features & Benefits</p>
+            <h2>Powerful Features That Bring Real Value</h2>
+            <p class="fb-sub">
+                We combine innovation, performance, and reliability to deliver the best IT solutions.
+            </p>
+        </div>
+
+        <div class="fb-container">
+
+            <!-- LEFT BIG CARD -->
+            <div class="fb-highlight">
+                <i class="fas fa-cogs"></i>
+                <h3>Custom IT Solutions</h3>
+                <p>
+                    We design and develop tailored systems and websites based on your specific needs,
+                    ensuring efficiency, scalability, and long-term success.
+                </p>
             </div>
 
-            <div class="target-card">
-                <i class="fas fa-rocket"></i>
-                <h3>Startups</h3>
-                <p>Supporting startups in building strong digital presence and scalable systems.</p>
+            <!-- RIGHT GRID -->
+            <div class="fb-grid">
+
+                <div class="fb-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure & Reliable</h3>
+                    <p>Strong security and stable performance.</p>
+                </div>
+
+                <div class="fb-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>High Performance</h3>
+                    <p>Fast and efficient system performance.</p>
+                </div>
+
+                <div class="fb-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support</h3>
+                    <p>Professional and responsive assistance.</p>
+                </div>
+
+                <div class="fb-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Affordable</h3>
+                    <p>Cost-effective solutions.</p>
+                </div>
+
+                <div class="fb-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Latest Tech</h3>
+                    <p>Always using modern technology.</p>
+                </div>
+
             </div>
 
-            <div class="target-card">
-                <i class="fas fa-school"></i>
-                <h3>Educational Institutions</h3>
-                <p>Providing IT solutions for schools and campuses to enhance learning systems.</p>
+        </div>
+
+    </section>
+
+    <!-- Target Market Section (Improved) -->
+    <section id="target" class="tm-section fade-in">
+        <div class="tm-container">
+
+            <div class="tm-header">
+                <p class="tm-tag">Our Audience</p>
+                <h2 class="tm-title">Who We Serve</h2>
+                <p class="tm-subtitle">
+                    We provide IT solutions tailored for various industries and individual needs.
+                </p>
             </div>
 
-            <div class="target-card">
-                <i class="fas fa-briefcase"></i>
-                <h3>Offices</h3>
-                <p>Ensuring smooth IT operations and security systems for office environments.</p>
+            <div class="tm-grid">
+
+                <div class="tm-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Small & Medium Enterprises</h3>
+                    <p>Businesses that need efficient systems and professional websites to grow and compete.</p>
+                </div>
+
+                <div class="tm-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Startups</h3>
+                    <p>New businesses looking to build a strong digital presence and scalable IT systems.</p>
+                </div>
+
+                <div class="tm-card">
+                    <i class="fas fa-school"></i>
+                    <h3>Educational Institutions</h3>
+                    <p>Schools and campuses that require IT solutions to support learning and management systems.</p>
+                </div>
+
+                <div class="tm-card">
+                    <i class="fas fa-user"></i>
+                    <h3>Individuals</h3>
+                    <p>People who need personal IT services such as device repair and website creation.</p>
+                </div>
+
             </div>
 
-            <div class="target-card">
-                <i class="fas fa-user"></i>
-                <h3>Individuals</h3>
-                <p>Offering personal IT support including device repair and website creation.</p>
-            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section fade-in">
-        <h2 class="section-title">Contact Us</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
+    <!-- Solved Pain Section (Improved) -->
+    <section id="solved-pain" class="sp-section fade-in">
+        <div class="sp-container">
+
+            <div class="sp-header">
+                <p class="sp-tag">Problem & Solution</p>
+                <h2 class="sp-title">We Solve Your Technology Problems</h2>
+                <p class="sp-subtitle">
+                    Our services are designed to eliminate common IT challenges and help you operate more efficiently
+                    and securely.
+                </p>
+            </div>
+
+            <div class="sp-list">
+
+                <div class="sp-item">
+                    <div class="sp-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h3>Technical Issues</h3>
+                        <p>Frequent hardware and software problems disrupt your work.</p>
+                        <span>✔ We provide fast diagnostics and reliable repair solutions.</span>
+                    </div>
+                </div>
+
+                <div class="sp-item">
+                    <div class="sp-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h3>Lack of Online Presence</h3>
+                        <p>Your business is not visible or competitive online.</p>
+                        <span>✔ We build modern and responsive websites to grow your presence.</span>
+                    </div>
+                </div>
+
+                <div class="sp-item">
+                    <div class="sp-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h3>Security Concerns</h3>
+                        <p>Your property or office lacks proper monitoring systems.</p>
+                        <span>✔ We install CCTV systems for better security and control.</span>
+                    </div>
+                </div>
+
+                <div class="sp-item">
+                    <div class="sp-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="sp-content">
+                        <h3>Inefficient Systems</h3>
+                        <p>Manual or outdated systems slow down your operations.</p>
+                        <span>✔ We develop custom systems to improve efficiency and productivity.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- New Headline Section (Startup Split Layout) -->
+    <section id="new-headline" class="nh-section fade-in">
+        <div class="nh-container">
+
+            <!-- Left Content -->
+            <div class="nh-left">
+                <p class="nh-tag">Value Proposition</p>
+
+                <h2 class="nh-title">
+                    Transforming Your Technology Problems into Smart Digital Solutions
+                </h2>
+
+                <p class="nh-desc">
+                    We help businesses and individuals overcome technical challenges, improve efficiency, and build a
+                    strong digital presence through reliable and innovative IT services.
+                </p>
+
+                <div class="nh-actions">
+                    <a href="#services" class="nh-btn primary">Explore Services</a>
+                    <a href="#contact" class="nh-btn secondary">Contact Us</a>
+                </div>
+            </div>
+
+            <!-- Right Visual -->
+            <div class="nh-right">
+                <div class="nh-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Smart IT Solutions</h3>
+                    <p>Efficient, secure, and scalable technology for your needs.</p>
+                </div>
+
+                <div class="nh-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Systems</h3>
+                    <p>Protect your data and business with advanced solutions.</p>
+                </div>
+
+                <div class="nh-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Business Growth</h3>
+                    <p>Boost productivity and accelerate your digital transformation.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Value Proposition Mapping -->
+    <section id="mapping" class="map-section fade-in">
+        <div class="map-container">
+
+            <div class="map-header">
+                <p class="map-tag">Value Proposition Canvas</p>
+                <h2 class="map-title">Customer Jobs, Pain & Gain Mapping</h2>
+                <p class="map-subtitle">
+                    Understanding customer needs to deliver the right solutions.
+                </p>
+            </div>
+
+            <div class="map-grid">
+
+                <!-- Customer Jobs -->
+                <div class="map-card jobs">
+                    <h3><i class="fas fa-tasks"></i> Customer Jobs</h3>
+                    <ul>
+                        <li>Manage business operations efficiently</li>
+                        <li>Build a strong online presence</li>
+                        <li>Ensure system and data security</li>
+                        <li>Fix technical issues quickly</li>
+                    </ul>
+                </div>
+
+                <!-- Pain -->
+                <div class="map-card pain">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Pain</h3>
+                    <ul>
+                        <li>Frequent system errors and device issues</li>
+                        <li>Lack of website or poor online visibility</li>
+                        <li>Security risks and lack of monitoring</li>
+                        <li>Inefficient manual processes</li>
+                    </ul>
+                </div>
+
+                <!-- Gain -->
+                <div class="map-card gain">
+                    <h3><i class="fas fa-star"></i> Gain</h3>
+                    <ul>
+                        <li>Efficient and automated systems</li>
+                        <li>Professional and modern website</li>
+                        <li>Secure and monitored environment</li>
+                        <li>Improved productivity and business growth</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section (Modern) -->
+    <section id="contact" class="contact-section fade-in">
+
+        <div class="contact-header">
+            <p class="contact-tag">Contact Us</p>
+            <h2>Let’s Work Together</h2>
+            <p class="contact-sub">
+                Have a project or problem? Reach out to us and we’ll help you find the best solution.
+            </p>
+        </div>
+
+        <div class="contact-container">
+
+            <!-- LEFT INFO -->
+            <div class="contact-left">
+
+                <div class="contact-card">
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h4>Email</h4>
                         <p>kadafi051207@gmail.com</p>
                     </div>
                 </div>
-                <div class="contact-item">
+
+                <div class="contact-card">
                     <i class="fab fa-whatsapp"></i>
                     <div>
-                        <h4>whatsapp</h4>
+                        <h4>WhatsApp</h4>
                         <p>082321233864</p>
                     </div>
                 </div>
-                <div class="contact-item">
+
+                <div class="contact-card">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h4>Location</h4>
-                        <p>Karang Bahagia, Kab. Bekasi, Indonesia</p>
+                        <p>Karang Bahagia, Bekasi</p>
                     </div>
                 </div>
+
+                <!-- CTA BOX -->
+                <div class="contact-cta">
+                    <h3>Need Quick Response?</h3>
+                    <p>Contact us directly via WhatsApp for faster service.</p>
+                    <a href="https://wa.me/6282321233864" target="_blank">Chat Now</a>
+                </div>
+
             </div>
 
-            <div class="contact-form">
+            <!-- RIGHT FORM -->
+            <div class="contact-right">
                 <form>
                     <div class="form-group">
                         <input type="text" placeholder="Your Name" required>
                     </div>
+
                     <div class="form-group">
                         <input type="email" placeholder="Your Email" required>
                     </div>
+
                     <div class="form-group">
                         <textarea placeholder="Your Message" required></textarea>
                     </div>
+
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
+
         </div>
+
     </section>
 
-
-    <!-- Footer -->
+    <!-- Footer (Modern) -->
     <footer class="footer">
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+
+        <div class="footer-container">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+                <h2>Mr IT Solution</h2>
+                <p>
+                    Providing professional IT solutions including system development,
+                    website creation, CCTV installation, and device repair.
+                </p>
+            </div>
+
+            <!-- LINKS -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- SERVICES -->
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li>System Development</li>
+                    <li>Website Development</li>
+                    <li>CCTV Installation</li>
+                    <li>Computer Repair</li>
+                </ul>
+            </div>
+
+            <!-- SOCIAL -->
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/6282321233864" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
         </div>
-        <p>&copy; 2026 Mr IT Solution. All rights reserved.</p>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mr IT Solution. All rights reserved.</p>
+        </div>
+
     </footer>
 
-    <!-- JavaScript -->
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', function () {
@@ -925,16 +2372,27 @@ Here's a complete, modern, responsive company profile website for **Mr IT Soluti
             navMenu.classList.toggle('active');
         });
 
-        // Scroll animation
-        const observer = new IntersectionObserver(entries => {
+        // 🔥 SATU OBSERVER UNTUK SEMUA
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+
+                    // untuk fade-in
+                    if (entry.target.classList.contains('fade-in')) {
+                        entry.target.classList.add('visible');
+                    }
+
+                    // untuk timeline
+                    if (entry.target.classList.contains('timeline-item')) {
+                        entry.target.classList.add('show');
+                    }
+
                 }
             });
-        });
+        }, { threshold: 0.2 });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // observe semua element
+        document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
             observer.observe(el);
         });
     </script>
